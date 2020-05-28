@@ -22,16 +22,16 @@
 		<ul class="header-menus">
 			<% if @current_user %>
 				<li><%= link_to(@current_user.name, "/users/#{@current_user.id}") %></li>
-				<li><%= link_to("posts_list", "/posts/index") %></li>
-				<li><%= link_to("new_post", "/posts/new") %></li>
-				<li><%= link_to("users_list", "/users/index") %></li>
-				<li><%= link_to("logout", "/logout", {method: :post}) %></li>
-				<li>(admin:ktststk10@g)</li>
+				<li><%= link_to("ポスト一覧/", "/posts/index") %></li>
+				<li><%= link_to("新規ポスト/", "/posts/new") %></li>
+				<li><%= link_to("ユーザ一覧/", "/users/index") %></li>
+				<li><%= link_to("ログアウト/", "/logout", {method: :post}) %></li>
+				<li>(管理人:sato.k)</li>
 			<% else %>
-				<li><%= link_to("What's_PostSNS", "/about") %></li>
-				<li><%= link_to("signup", "/signup") %></li>
-				<li><%= link_to("login", "/login") %></li>
-				<li>(admin:ktststk10@g)</li>
+				<li><%= link_to("PostSNSとは/", "/about") %></li>
+				<li><%= link_to("新規登録/", "/signup") %></li>
+				<li><%= link_to("ログイン/", "/login") %></li>
+				<li>(管理人:sato.k)</li>
 			<% end %>
 		</ul>
 	</header>
