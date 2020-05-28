@@ -1,6 +1,6 @@
 <div class="main users-edit">
   <div class="container">
-    <div class="form-heading">user information edit</div>
+    <div class="form-heading">ユーザ情報編集</div>
     <div class="form users-form">
       <div class="form-body">
       	<% @user.errors.full_messages.each do |message| %>
@@ -10,13 +10,13 @@
       	<% end %>
       	
 		<%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-			<p>user name</p>
+			<p>ユーザ名</p>
 			<input name="name" value="<%= @user.name %>">
-			<p>image</p>
+			<p>アイコン画像</p>
 			<input name="image" type="file">
-			<p>email address</p>
+			<p>メールアドレス</p>
 			<input name="email" value="<%= @user.email %>">
-			<input type="submit" value="save">
+			<input type="submit" value="保存">
 		<% end %>
       </div>
     </div>

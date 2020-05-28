@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   	  @post = Post.new(	content: params[:content],
   	  					user_id: @current_user.id)
   	  if @post.save
-  	  	flash[:notice] = "new posted"
+  	  	flash[:notice] = "新規ポストしました"
   	  	redirect_to("/posts/index")
   	  else
   	    render("posts/new")
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   	  @post = Post.find_by(id: params[:id])
   	  @post.content = params[:content]
   	  if @post.save
-  	  	  	flash[:notice] = "edit succeeded"
+  	  	  	flash[:notice] = "編集が成功しました"
   	  		redirect_to("/posts/index")
   	  else  
   			render("posts/edit")
@@ -38,13 +38,13 @@ class PostsController < ApplicationController
   def destroy
   	  @post = Post.find_by(id: params[:id])
   	  @post.destroy
-  	  flash[:notice] = "post deleted"
+  	  flash[:notice] = "ポストを削除しました"
   	  redirect_to("/posts/index")
   end
   def ensure_correct_user
   	  @post = Post.find_by(id: params[:id])
   	  if @post.user_id != @current_user.id
-  	  	  flash[:notice] = "no authority"
+  	  	  flash[:notice] = "権限がありません"
   	  	  redirect_to("/posts/index")
   	  end
   end

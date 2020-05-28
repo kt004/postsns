@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update]}
   def ensure_correct_user
   	  if @current_user.id != params[:id].to_i
-  	  	  flash[:notice] = "no authority"
+  	  	  flash[:notice] = "権限がありません"
   	  	  redirect_to("/posts/index")
   	  end
   end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   	  	password: params[:password])
   	  if @user.save
   	  	  session[:user_id] = @user.id
-  	  	  flash[:notice] = "user registration completed"
+  	  	  flash[:notice] = "ユーザ登録しました"
   	  	  redirect_to("/users/#{@user.id}")
   	  else
   	  	  render("users/new")
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   	  	  File.binwrite("public/user_images/#{@user.image_name}", image.read)  	  
   	  end
   	  if @user.save
-  	  	  flash[:notice] = "user information edited"
+  	  	  flash[:notice] = "ユーザ情報を編集しました"
   	  	  redirect_to("/users/#{@user.id}")
   	  else
   	  	  render("/users/edit")
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   	  @user = User.find_by(	email: params[:email])
   	  if @user && @user.authenticate(params[:password])
   	  	  session[:user_id] = @user.id
-  	  	  flash[:notice] = "logined"
+  	  	  flash[:notice] = "ログインしました"
   	  	  redirect_to("/posts/index")
   	  else
   	  	  @error_message = "wrong email address or password"
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   end
   def logout
   	  session[:user_id] = nil
-  	  flash[:notice] = "logouted"
+  	  flash[:notice] = "ログアウトしました"
   	  redirect_to("/login")
   end
   def likes
