@@ -8,11 +8,11 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'sqlite3', group: :development
-#–{”Ô‚Å‚ÍpostgreSQL‚ðŽg—p‚·‚é
+#â€“{â€Ã”â€šÃ…â€šÃpostgreSQLâ€šÃ°Å½gâ€”pâ€šÂ·â€šÃ©
 gem 'pg', group: :production
 
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
